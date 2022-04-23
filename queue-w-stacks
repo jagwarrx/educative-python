@@ -1,0 +1,33 @@
+from Stack import MyStack
+# Push Function => stack.push(int)  //Inserts the element at top
+# Pop Function => stack.pop()       //Removes and returns the element at top
+# Top/Peek Function => stack.get_top()  //Returns top element
+# Helper Functions => stack.is_empty() & stack.isFull() //returns boolean
+
+
+class NewQueue:
+    def __init__(self):
+        self.main_stack = MyStack()
+        self.extra_stack = MyStack()
+        # Write your code here
+
+
+    # Inserts Element in the Queue
+    def enqueue(self, value):
+        # Write your code here
+        self.main_stack.push(value)
+     
+
+
+    # Removes Element From Queue
+    def dequeue(self):
+
+        while(self.main_stack.is_empty() == False):
+            self.extra_stack.push(self.main_stack.pop())
+        return_value = self.extra_stack.pop()
+        while(self.extra_stack.is_empty() == False):
+            self.main_stack.push(self.extra_stack.pop())
+        return return_value
+
+        
+       
