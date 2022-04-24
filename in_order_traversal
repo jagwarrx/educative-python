@@ -1,0 +1,24 @@
+class Node:
+  def __init__(self, value):
+    self.right = None
+    self.left = None
+    self.data = value
+  
+def print_tree(root):
+  if root is None:
+    print("end")
+    return
+  else:  
+    print_tree(root.left) 
+    print(root.data)
+    print_tree(root.right) 
+  return
+
+new_node = Node(100)
+new_node.right = Node(200)
+new_node.left = Node(50)
+new_node.left.right = Node(75)
+new_node.left.left = Node(25)
+new_node.left.right = Node(35)
+
+print_tree(new_node)
